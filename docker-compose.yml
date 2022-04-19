@@ -1,0 +1,20 @@
+version: '2.1'
+services: 
+  live-reload:
+    image: m4stream-radio
+    build: .
+    environment:
+      PORT: 80
+    command: 
+      - npm
+      - run
+      - live-reload
+    volumes:
+      - .:/m4stream-radio
+      - node_modules:/m4stream-radio/node_modules
+    ports:
+      - 80:80
+
+  
+volumes:
+  node_modules: {}
